@@ -1,0 +1,11 @@
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\bin\Debug\net9.0\MyApi.Domain.deps.json
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\bin\Debug\net9.0\MyApi.Domain.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\bin\Debug\net9.0\MyApi.Domain.pdb
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\MyApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\MyApi.Domain.AssemblyInfoInputs.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\MyApi.Domain.AssemblyInfo.cs
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\MyApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\MyApi.Domain.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\refint\MyApi.Domain.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\MyApi.Domain.pdb
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Domain\obj\Debug\net9.0\ref\MyApi.Domain.dll

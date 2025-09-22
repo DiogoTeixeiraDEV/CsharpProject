@@ -1,0 +1,15 @@
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\bin\Debug\net9.0\MyApi.Infrastructure.deps.json
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\bin\Debug\net9.0\MyApi.Infrastructure.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\bin\Debug\net9.0\MyApi.Infrastructure.pdb
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\bin\Debug\net9.0\MyApi.Domain.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\bin\Debug\net9.0\MyApi.Domain.pdb
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.AssemblyInfo.cs
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.In.40EA9874.Up2Date
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\refint\MyApi.Infrastructure.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\MyApi.Infrastructure.pdb
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\MyApi.Infrastructure\obj\Debug\net9.0\ref\MyApi.Infrastructure.dll
