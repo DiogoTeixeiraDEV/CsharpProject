@@ -13,3 +13,4 @@ C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Application\obj\De
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Application\obj\Debug\net9.0\refint\Application.dll
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Application\obj\Debug\net9.0\Application.pdb
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Application\obj\Debug\net9.0\ref\Application.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Application\obj\Debug\net9.0\Application.sourcelink.json

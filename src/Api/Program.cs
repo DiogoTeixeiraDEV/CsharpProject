@@ -7,26 +7,32 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
-var jwtSecret = builder.Configuration["Jwt:Secret"]!;
+
+// Configurações de JWT
+var jwtSecret = builder.Configuration["Jwt:Secret"] ?? throw new InvalidOperationException("JWT Secret não encontrado!");
+
+// Adiciona controllers
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<AppDbContext>( options =>
- {
+// Configura DbContext (PostgreSQL)
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// DI - Injeção de dependência
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
 builder.Services.AddScoped<UserService>();
-
-builder.Services.AddSingleton<AuthService>(sp =>
+builder.Services.AddScoped<AuthService>( sp =>
 {
-    var UserRepository = sp.GetRequiredService<IUserRepository>();
-    return new AuthService(UserRepository, jwtSecret);
-}
-);
+    var userRepository = sp.GetRequiredService<IUserRepository>();
+    var jwtSecret = builder.Configuration["Jwt:Secret"] 
+        ?? throw new InvalidOperationException("JWT Secret não encontrado!");
+    return new AuthService(userRepository, jwtSecret);
+}); // Scoped também
+
+// Configura JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -34,9 +40,9 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-   options.RequireHttpsMetadata = false;
-   options.SaveToken = true;
-   options.TokenValidationParameters = new TokenValidationParameters
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecret)),
@@ -44,9 +50,14 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false
     };
 });
+
 var app = builder.Build();
 
+
 app.UseHttpsRedirection();
+app.UseAuthentication(); 
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();

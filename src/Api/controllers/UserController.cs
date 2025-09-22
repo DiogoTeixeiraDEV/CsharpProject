@@ -8,7 +8,7 @@ namespace Api.Controllers;
 
 [Authorize]
 [ApiController]
-[Route("users/[controller]")]
+[Route("users")]
 public class UserController : ControllerBase
 {
     private readonly UserService _userService;
@@ -21,7 +21,13 @@ public class UserController : ControllerBase
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _userService.GetAllUsersAsync();
-        return Ok(users);
+        var usersDto = users.Select(u => new UserResponseDto
+        {
+            Id = u.Id,
+            Name = u.Name,
+            Email = u.Email
+        });
+        return Ok(usersDto);
     }
 
     [HttpGet("{id}")]
@@ -29,7 +35,14 @@ public class UserController : ControllerBase
     {
         var user = await _userService.GetUserByIdAsync(id);
         if (user == null) return NotFound();
-        return Ok(user);
+
+        var userDto = new UserResponseDto
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email
+        };
+        return Ok(userDto);
     }
 
     [HttpPost]

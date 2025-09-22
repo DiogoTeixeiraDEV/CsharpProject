@@ -3,7 +3,7 @@ using Application.Services;
 using Application.dtos;
 
 [ApiController]
-[Route("auth/[controller]")]
+[Route("auth")]
 public class AuthController : ControllerBase
 {
     private readonly AuthService _authService;
