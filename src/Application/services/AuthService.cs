@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Application.dtos;
+using System.Security.Claims;
 
 namespace Application.Services;
 
@@ -26,7 +27,7 @@ public class AuthService
 
         var hashedPassword = HashPassword(dto.Password);
         
-        var user = new User(dto.Name, dto.Email, hashedPassword);
+        var user = new User(dto.Name, dto.Email, hashedPassword, dto.Role ?? UserRole.User);
 
         return await _userRepository.CreateAsync(user);
     }
@@ -64,7 +65,8 @@ public class AuthService
             Subject = new System.Security.Claims.ClaimsIdentity(new[]
             {
                 new System.Security.Claims.Claim("id", user.Id.ToString()),
-                new System.Security.Claims.Claim("email", user.Email)
+                new System.Security.Claims.Claim("email", user.Email),
+                new System.Security.Claims.Claim("role", user.Role.ToString())
             }),
             Expires = DateTime.UtcNow.AddHours(1),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

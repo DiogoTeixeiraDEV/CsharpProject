@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Domain.Entities;
 using Application.Services;
-using Api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel;
+using Application.dtos;
 
 namespace Api.Controllers;
 
-[Authorize]
 [ApiController]
 [Route("users")]
 [SwaggerTag("Endpoints para gerenciamento de usuários")]
@@ -21,7 +20,8 @@ public class UserController : ControllerBase
     }
     
     [HttpGet]
-    [SwaggerOperation(Summary= "Lista todos os usuários", Description = "Obtém uma lista de todos os usuários registrados no sistema.")]
+    [Authorize]
+    [SwaggerOperation(Summary = "Lista todos os usuários", Description = "Obtém uma lista de todos os usuários registrados no sistema.")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> GetAllUsers()
@@ -36,7 +36,8 @@ public class UserController : ControllerBase
         return Ok(usersDto);
     }
     [HttpGet("{id}")]
-    [SwaggerOperation(Summary= "Busca um usuário pelo ID"), Description ("Obtém os detalhes de um usuário específico usando seu ID.")]
+    [Authorize(Roles = "Admin")]
+    [SwaggerOperation(Summary = "Busca um usuário pelo ID"), Description("Obtém os detalhes de um usuário específico usando seu ID. **Apenas ADMIN**")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -55,7 +56,8 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [SwaggerOperation(Summary = "Cria um novo usuário", Description = "Cria um novo usuário com os detalhes fornecidos.")]
+    [Authorize(Roles = "Admin")]
+    [SwaggerOperation(Summary = "Cria um novo usuário", Description = "Cria um novo usuário com os detalhes fornecidos. **Apenas ADMIN**")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateUser([FromBody] UserDto dto)
@@ -65,7 +67,8 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [SwaggerOperation(Summary = "Atualiza um usuário existente", Description = "Atualiza os detalhes de um usuário existente usando seu ID.")]
+    [Authorize(Roles = "Admin")]
+    [SwaggerOperation(Summary = "Atualiza um usuário existente", Description = "Atualiza os detalhes de um usuário existente usando seu ID. **Apenas ADMIN**")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UserDto dto)
@@ -78,7 +81,8 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [SwaggerOperation(Summary = "Deleta um usuário", Description = "Deleta um usuário específico usando seu ID.")]
+    [Authorize(Roles = "Admin")]
+    [SwaggerOperation(Summary = "Deleta um usuário", Description = "Deleta um usuário específico usando seu ID. **Apenas ADMIN**")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
 

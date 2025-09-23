@@ -10,8 +10,9 @@ public class AuthorizeCheckOperationFilter : IOperationFilter
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {
         // Se a action ou controller tem [Authorize] e não tem [AllowAnonymous]
-        var hasAuthorize = context.MethodInfo.DeclaringType.GetCustomAttributes(true)
-                               .OfType<AuthorizeAttribute>().Any() ||
+        var hasAuthorize = (context.MethodInfo.DeclaringType != null &&
+                               context.MethodInfo.DeclaringType.GetCustomAttributes(true)
+                                   .OfType<AuthorizeAttribute>().Any()) ||
                            context.MethodInfo.GetCustomAttributes(true)
                                .OfType<AuthorizeAttribute>().Any();
 

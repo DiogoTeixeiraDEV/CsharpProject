@@ -27,7 +27,7 @@ public class AuthController : ControllerBase
         try
         {
             var user = await _authService.RegisterAsync(dto);
-            return Ok(new { user.Id, user.Name, user.Email });
+            return Ok(new { user.Id, user.Name, user.Email, user.Role });
         }
         catch (Exception)
         {
