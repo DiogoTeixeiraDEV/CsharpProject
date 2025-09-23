@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Api.filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,25 @@ var jwtSecret = builder.Configuration["Jwt:Secret"] ?? throw new InvalidOperatio
 
 // Adiciona controllers
 builder.Services.AddControllers();
+
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "JWT Authorization header usando o Bearer scheme. Exemplo: 'Bearer {token}'"
+    });
+
+     c.OperationFilter<AuthorizeCheckOperationFilter>();
+});
 
 // Configura DbContext (PostgreSQL)
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -53,6 +73,11 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 app.UseAuthentication(); 

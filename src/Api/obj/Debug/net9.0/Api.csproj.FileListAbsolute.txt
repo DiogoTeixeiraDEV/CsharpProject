@@ -142,3 +142,7 @@ C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\obj\Debug\net9.0\Api.sourcelink.json
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Annotations.dll
