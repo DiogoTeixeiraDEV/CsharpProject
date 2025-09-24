@@ -5,8 +5,8 @@ C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\n
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.AssemblyInfoInputs.cache
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.AssemblyInfo.cs
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.sourcelink.json
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.dll
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\refint\Domain.dll
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.pdb
 C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\ref\Domain.dll
-C:\Users\diogo\OneDrive\Área de Trabalho\Projeto .NET C#\src\Domain\obj\Debug\net9.0\Domain.sourcelink.json

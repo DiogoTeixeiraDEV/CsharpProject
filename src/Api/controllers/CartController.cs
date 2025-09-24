@@ -51,7 +51,6 @@ public class CartController : ControllerBase
         {
             throw new UnauthorizedAccessException("User ID não encontrado no Token.");
         }
-
         return Guid.Parse(userIdClaim.Value);
     }
 }

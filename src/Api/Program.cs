@@ -1,5 +1,6 @@
 using Application.Services;
 using Domain.Repositories;
+using Domain.Entities;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -74,12 +75,39 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    context.Database.Migrate(); // garante que o DB está atualizado
+
+    if (!context.Users.Any(u => u.Role == UserRole.Admin))
+    {
+        var admin = new User(
+            name: "Admin",
+            email: "admin@domain.com",
+            password: "SenhaAdmin123!",
+            role: UserRole.Admin
+        );
+
+        context.Users.Add(admin);
+        context.SaveChanges();
+
+        Console.WriteLine("Usuário admin criado com sucesso");
+    }
+    else
+    {
+        Console.WriteLine("Usuário admin já existe");
+    }
+}
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 app.UseAuthentication(); 
 app.UseAuthorization();
