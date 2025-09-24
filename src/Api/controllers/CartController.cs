@@ -43,6 +43,17 @@ public class CartController : ControllerBase
         return Ok(updatedCart);
     }
 
+    [HttpDelete("items/{productId}")]
+    [SwaggerOperation(Summary = "Remove um item do carrinho", Description = "Remove um item do carrinho de compras do usuário autenticado.")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> RemoveItemFromCart([FromRoute] Guid productId)
+    {
+        var userId = GetUserFromIdToken();
+        var updatedCart = await _cartService.RemoveItemAsync(userId, productId);
+        return Ok(updatedCart);
+    }
+
 
     private Guid GetUserFromIdToken()
     {
