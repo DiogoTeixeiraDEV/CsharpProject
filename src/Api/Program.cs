@@ -10,10 +10,8 @@ using Api.filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurações de JWT
 var jwtSecret = builder.Configuration["Jwt:Secret"] ?? throw new InvalidOperationException("JWT Secret não encontrado!");
 
-// Adiciona controllers
 builder.Services.AddControllers();
 
 
@@ -42,6 +40,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 // DI - Injeção de dependência
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<AuthService>( sp =>
@@ -50,9 +52,8 @@ builder.Services.AddScoped<AuthService>( sp =>
     var jwtSecret = builder.Configuration["Jwt:Secret"] 
         ?? throw new InvalidOperationException("JWT Secret não encontrado!");
     return new AuthService(userRepository, jwtSecret);
-}); // Scoped também
+}); 
 
-// Configura JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
