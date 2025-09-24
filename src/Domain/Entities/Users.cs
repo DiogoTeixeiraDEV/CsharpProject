@@ -16,6 +16,7 @@ public class User
     public string Password { get; private set; } = null!;
 
     public UserRole Role { get; private set; } = UserRole.User;
+    public Cart Cart { get; private set; } = null!;
 
     private User() { }
 
