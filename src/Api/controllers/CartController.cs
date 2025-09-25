@@ -57,7 +57,7 @@ public class CartController : ControllerBase
 
     private Guid GetUserFromIdToken()
     {
-        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id");
         if (userIdClaim == null)
         {
             throw new UnauthorizedAccessException("User ID não encontrado no Token.");
